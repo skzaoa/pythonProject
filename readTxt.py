@@ -5,6 +5,9 @@ import traceback
 import logging.handlers
 import datetime
 
+from log import logger
+
+"""
 logger = logging.getLogger('log')
 logger.setLevel(logging.DEBUG)
 
@@ -17,6 +20,7 @@ f_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(filena
 
 logger.addHandler(rf_handler)
 logger.addHandler(f_handler)
+"""
 name_pattern = r"^(第.*章) (.*)"
 
 
@@ -30,7 +34,7 @@ def read_txt(txt_name):
             txt_line_strip = txt_line.strip()
             match = re.match(name_pattern, txt_line_strip)
 
-            with open() as txt:
+            with open("1.txt", "r+", encoding="utf-8") as txt:
                 if match:
                     txt_node_no = match.group(1)
                     txt_node_name = match.group(2)
