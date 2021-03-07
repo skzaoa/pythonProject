@@ -116,9 +116,9 @@ def login(username, password):
 if __name__ == '__main__':
     """
     yaml格式如下：
-    netease:
-        username:用户名
-        password:密码
+    netease :
+        username : 用户名
+        password : 密码
     """
     path = "config.yaml"
     with open(path, 'rt') as f:
