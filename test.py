@@ -1,4 +1,5 @@
 # coding=utf-8
+import yaml
 from selenium import webdriver
 import time
 from log import logging
@@ -113,7 +114,18 @@ def login(username, password):
 
 
 if __name__ == '__main__':
-    # main()
-    username = "sknull"
-    password = "********"
+    """
+    yaml格式如下：
+    netease:
+        username:用户名
+        password:密码
+    """
+    path = "config.yaml"
+    with open(path, 'rt') as f:
+        config = yaml.load(f.read(), Loader=yaml.FullLoader)
+    print(config)
+    username = config["netease"]["username"]
+    password = config["netease"]["password"]
+    logging.info(username)
+    logging.info(password)
     login(username, password)
